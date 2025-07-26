@@ -1,13 +1,18 @@
-const text = "Welcome to the Typing Effect App!";
+const text = "Welcome to the Typing Effect Project!";
 let index = 0;
+const speed = 100;
+const typeSound = document.getElementById("typeSound");
 
 function typeText() {
-  const typed = document.getElementById("typed-text");
   if (index < text.length) {
-    typed.textContent += text.charAt(index);
+    document.getElementById("text").textContent += text.charAt(index);
+    if (text.charAt(index) !== " ") {
+      typeSound.currentTime = 0;
+      typeSound.play();
+    }
     index++;
-    setTimeout(typeText, 100);
+    setTimeout(typeText, speed);
   }
 }
 
-typeText();
+window.onload = typeText;
