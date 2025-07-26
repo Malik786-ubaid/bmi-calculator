@@ -1,11 +1,13 @@
-function calculateBMI() {
-  const weight = parseFloat(document.getElementById("weight").value);
-  const height = parseFloat(document.getElementById("height").value);
+const text = "Welcome to the Typing Effect App!";
+let index = 0;
 
-  if (weight > 0 && height > 0) {
-    const bmi = (weight / (height * height)).toFixed(2);
-    document.getElementById("result").textContent = `Your BMI is ${bmi}`;
-  } else {
-    document.getElementById("result").textContent = "Please enter valid values";
+function typeText() {
+  const typed = document.getElementById("typed-text");
+  if (index < text.length) {
+    typed.textContent += text.charAt(index);
+    index++;
+    setTimeout(typeText, 100);
   }
 }
+
+typeText();
