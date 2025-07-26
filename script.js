@@ -12,6 +12,12 @@ function typeText() {
     }
     index++;
     setTimeout(typeText, speed);
+    function restartTyping() {
+  index = 0;
+  textElement.textContent = "";
+  typeText();
+}
+
   }
 }
 
